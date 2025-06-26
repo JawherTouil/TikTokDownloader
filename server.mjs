@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { pipeline } from 'stream/promises';
 import http from 'http';
 import { parse } from 'url';
+import open from 'open';
 
 // Fix __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -226,4 +227,5 @@ server.listen(PORT, () => {
   console.log(`   http://127.0.0.1:${PORT}`);
   console.log(`\n📁 Default download location: ${path.join(__dirname, 'downloads')}`);
   console.log(`\n🛑 Press Ctrl+C to stop the server`);
+  open(`http://localhost:${PORT}`);
 });
